@@ -46,31 +46,44 @@ if (guessesLeft == 0) {
 losses++;
 }
 */
+if (userGuess !== randomLetter && guessesLeft > 0) {
+    //if the user guesses wrong then take away from the guesses left
+    guessesLeft = guessesLeft - 1;
 
-for (var i = 0; i < guessesLeft; i++) {
 if (guessesLeft == 0) {
 losses++;
-} else  if (userGuess !== randomLetter) {
-//if the user guesses wrong then take away from the guesses left
-guessesLeft--;
+console.log(losses)
 } else if (userGuess == randomLetter) {
 //if user guesses right then add to the wins 
-wins++;
+wins++; 
+console.log(wins)
 } else if (userGuess !== randomLetter) {
 //if the user guesses wrong then take away from the guesses left
 guessesLeft--;
     }
+
 }
-alreadyUsedArr.push(userGuess);
+
+if (userGuess == alreadyUsedArr) {
+    alert('pick a letter you havent used yet');
+} 
+
+// alerts for every key press rather than ever non letter
+// if (userGuess !== letters) {
+    alert('that\'s not a letter silly');
+}
+alreadyUsedArr.push(userGuess)
+// alreadyUsedArr.push(userGuess);
 $("#guessesLeft").text('Guesses Left: ' + guessesLeft);
 /* *******is displaying two letters for some reason******* */
-$('alreadyUsed').text("Letters Used: " + alreadyUsedArr);
-$('losses').text('Losses: ' + losses);
-$('wins').text("Wins: " + wins)
+$('#alreadyUsed').text("Letters Used: " + alreadyUsedArr);
+$('#losses').text('Losses: ' + losses);
+$('#wins').text("Wins: " + wins)
+
+console.log(alreadyUsedArr);
 
 
 };
 
 
 console.log(randomLetter);
-console.log(alreadyUsedArr);
