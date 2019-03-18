@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="/assets/style.css"> -->
+    <!-- <link rel="stylesheet" href="/assets/reset.css"> -->
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Guess what letter I am thinking of</h1>
+
+    <p id="wins">Wins: 0</p>
+
+    <p id="losses">Losses: 0</p>
+
+    <p id="guessesLeft">Guesses Left: 10 </p>
+
+    <p id="alreadyUsed">Letters Used: </p>
+
+    <script>
+        var wins = document.getElementById('wins');
+        var losses = document.getElementById('losses');
+        var guessesLeft = document.getElementById('guessesLeft');
+        var alreadyUsed = document.getElementById('alreadyUsed');
+
+        var letters = "abcdefghijklmnopqrstuvwxyz"
+       
+        // not displaying
+      
+        //
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 10;
+        var alreadyUsedArr = []; 
+
+        //shows the answer in the console
+        
+        //generate random letter for user to guess
+        var randomLetter = letters[Math.floor(Math.random() * letters.length)];
+
+document.onkeyup = function userInput(event) {
+    //takes in user input
+var userGuess = event.key;
+
+//not working
+alreadyUsedArr.push(userGuess);
+//not working
+/*if (userGuess != letters) {
+        alert('only letters of the alphabet pls')
+        }
+*/
+if (event == randomLetter) {
+    //if user guesses right then add to the wins 
+     wins++;
+}
+if (guessesLeft == 0) {
+    losses++;
+
+} if (event != randomLetter) {
+    //if the user guesses wrong then take away from the guesses left
+    guessesLeft--;
+    }
+
+if (guessesLeft == 0) {
+        losses++;
+    }
+
+
+ 
+$("#guessesLeft").text('Guesses Left: ' + guessesLeft);
+        /* *******is displaying two letters for some reason******* */
+ $('alreadyUsed').text("Letters Used: " + alreadyUsedArr);
+ $('losses').text('Losses: ' + losses);
+ $('wins').text("Wins: " + wins)
+      
+    
+}
+
+
+   
+    
+
+
+  
+
+console.log(randomLetter)
+console.log(alreadyUsedArr)
+    </script>
+
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+    <!-- <script src="/javascript/game.js"></script> -->
+</body>
+</html>
