@@ -1,3 +1,4 @@
+
 var wins = document.getElementById('wins');
 var losses = document.getElementById('losses');
 var guessesLeft = document.getElementById('guessesLeft');
